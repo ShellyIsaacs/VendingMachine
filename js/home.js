@@ -10,7 +10,7 @@ function loadItems(){
   var vendingItems = $('#vendingItems');
   $.ajax ({
     type: 'GET',
-    url: 'http://tsg-vending.herokuapp.com/items',
+    url: 'https://tsg-vending.herokuapp.com/items',
     success: function (data, status) {
         $.each(data, function(index, item) {
 
@@ -67,7 +67,7 @@ $('#purchaseButton').click(function() {
     purchaseMoney = money/100;
     $.ajax({
       type: 'GET',
-      url: 'http://tsg-vending.herokuapp.com/money/' + purchaseMoney + '/item/' + itemForPurchase,
+      url: 'https://tsg-vending.herokuapp.com/money/' + purchaseMoney + '/item/' + itemForPurchase,
       headers: {
         'Accept':'application/json',
         'Content-Type':'application/json'
@@ -83,6 +83,6 @@ $('#purchaseButton').click(function() {
         $('#message').empty();
         $('#message').text(xhr.responseJSON.message);
      }
-    });
+   });
   }
 })
