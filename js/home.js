@@ -83,6 +83,6 @@ $('#purchaseButton').click(function() {
         $('#message').empty();
         $('#message').text(xhr.responseJSON.message);
      }
-    })
+    });
   }
 })
