@@ -10,11 +10,11 @@ function loadItems(){
   var vendingItems = $('#vendingItems');
   $.ajax ({
     type: 'GET',
-    url: 'https://tsg-vending.herokuapp.com/items',
+    url: 'http://tsg-vending.herokuapp.com/items',
     success: function (data, status) {
         $.each(data, function(index, item) {
 
-          var card = '<div class = "col-md-4">';
+          var card = '<div class = "col-md-4 col-sm-6">';
           card += '<div class = "card btn text-white bg-dark" style = "margin: 10px" onclick = "enterItem('+ item.id +')">';
           card += '<p style = "text-align: left; padding: 0; margin: 0">'+item.id+'</p>';
           card += '<p>'+item.name+'</p>';
@@ -32,7 +32,6 @@ function loadItems(){
 }
 
 function addMoney(newMoney) {
-  $('#message').html('&emsp;&emsp;&emsp;&emsp;');
   money+=newMoney;
   $('#moneyIn').text(money/100);
 }
@@ -47,6 +46,7 @@ function enterItem(itemId) {
 }
 
 $("#returnChangeButton").click(function() {
+  $('#message').html('&emsp;&emsp;&emsp;&emsp;');
   var quarters = Math.floor(money/25);
   var remainder = money%25;
   var dimes = Math.floor(remainder/10);
@@ -60,24 +60,29 @@ $("#returnChangeButton").click(function() {
 })
 
 $('#purchaseButton').click(function() {
-  purchaseMoney = money/100;
-  $.ajax({
-    type: 'GET',
-    url: 'https://tsg-vending.herokuapp.com/money/' + purchaseMoney + '/item/' + itemForPurchase,
-    headers: {
-      'Accept':'application/json',
-      'Content-Type':'application/json'
-    },
-    success: function(data, status) {
-      $('#message').text('Thank You!!!');
-      money = 0;
-      $('#change').text(data.quarters + ' Quarters ' + data.dimes + ' Dimes ' + data.nickels + ' Nickels ' + data.pennies + ' Pennies');
-      $('#moneyIn').html('&emsp;&emsp;&emsp;&emsp;');
-      loadItems();
-    },
-    error: function (xhr, status, error) {
-      $('#message').empty();
-      $('#message').text(xhr.responseJSON.message);
-   }
-  })
+
+  if (itemForPurchase == null) {
+    $('#message').text('SELECT AN ITEM');
+  } else {
+    purchaseMoney = money/100;
+    $.ajax({
+      type: 'GET',
+      url: 'http://tsg-vending.herokuapp.com/money/' + purchaseMoney + '/item/' + itemForPurchase,
+      headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      success: function(data, status) {
+        $('#message').text('Thank You!!!');
+        money = 0;
+        $('#change').text(data.quarters + ' Quarters ' + data.dimes + ' Dimes ' + data.nickels + ' Nickels ' + data.pennies + ' Pennies');
+        $('#moneyIn').html('&emsp;&emsp;&emsp;&emsp;');
+        loadItems();
+      },
+      error: function (xhr, status, error) {
+        $('#message').empty();
+        $('#message').text(xhr.responseJSON.message);
+     }
+    })
+  }
 })
