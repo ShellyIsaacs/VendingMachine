@@ -1,0 +1,62 @@
+  h1{
+    font-family: 'Playfair Display', serif;
+  }
+
+  h2{
+    font-family: 'Playfair Display', serif;
+    font-size: x-large;
+  }
+
+  .container-fluid {
+    background-color: #FDF0D4;
+  }
+
+  .card {
+    background-color: #71350E;
+    color: white;
+    font-family: 'Abel', sans-serif;
+    font-size: large;
+    border: 2px solid black;
+  }
+
+  .btn {
+    font-family: 'Abel', sans-serif;
+    white-space: normal;
+  }
+
+  .card:hover {
+    font-style: italic;
+    font-family: 'Indie Flower', cursive;
+    border-width: 3px;
+    border-color: #E94741;
+  }
+
+  #contentArea {
+    background-color: #49423B;
+    border: 2px black;
+  }
+
+  #message, #change, #moneyIn, #selectedItem {
+    font-family: 'Indie Flower', cursive;
+    color: #E94741;
+    font-size: large;
+  }
+
+  #selectedItem, #moneyIn {
+    font-size: x-large;
+  }
+
+  .outputText {
+    border: solid #C8B5A7 1px;
+    margin: 20px;
+    padding-top: 15px;
+    text-align: center;
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  .btn-dark {
+     margin: 5px;
+  }
