@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <link rel="icon" href="fonts/icon.ico" type="image/x-icon"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>The Vender</title>
@@ -13,66 +13,15 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-
-    <style>
-
-      h1{
-        font-family: 'Playfair Display', serif;
-      }
-
-      h2{
-        font-family: 'Playfair Display', serif;
-        font-size: x-large;
-      }
-
-      .container-fluid {
-        background-color: #FDF0D4;
-      }
-
-      .card {
-        background-color: #71350E;
-        color: white;
-        font-family: 'Abel', sans-serif;
-        font-size: large;
-        border: 2px solid black;
-      }
-
-      .btn {
-        font-family: 'Abel', sans-serif;
-      }
-
-      .card:hover {
-        font-style: italic;
-        border-width: 3px;
-        border-color: #E94741;
-      }
-
-
-      #contentArea {
-        background-color: #49423B;
-        border: 2px black;
-      }
-
-      #message, #change, #moneyIn, #selectedItem {
-        font-family: 'Indie Flower', cursive;
-        color: #E94741;
-        font-size: large;
-      }
-
-      #selectedItem, #moneyIn {
-        font-size: x-large;
-      }
-
-    </style>
-
+    <link href="css/styles.css" type="text/css" rel="stylesheet"/>
   </head>
 
   <body>
     <div class = "container-fluid">
-      <div class = "row justify-content-center">
+      <div class = "row">
 
         <h1 style = "padding-top: 15px">
-          <img src="icon.png" height="37px" style="padding: 0 10px 5px 0">
+          <img src="fonts/icon.png" height="37px" style="padding: 0 10px 5px 0">
           THE VENDER
         </h1>
 
@@ -89,26 +38,26 @@
 
         <div class = "col-md-3" id = "purchaseInfo" style="padding: 15px 0">
 
-          <div style="padding-bottom: 20px">
-            <div class = "row justify-content-center">
+          <div class="rightSideRow">
+            <div class = "row">
               <h2>Total $ In</h2>
             </div>
-            <div class = "row justify-content-center">
-              <p id = "moneyIn" style = "padding: 1px">0</p>
+            <div class = "row outputText">
+              <p id = "moneyIn">0</p>
             </div>
-            <div class = "row justify-content-center">
-              <button type="button" onclick = "addMoney(100)" id="AddDollarButton" class="btn btn-dark" style = "margin: 5px">
+            <div class = "row">
+              <button type="button" onclick = "addMoney(100)" id="AddDollarButton" class="btn btn-dark">
                   Add Dollar
               </button>
-              <button type="button" onclick = "addMoney(25)" id="AddQuarterButton" class="btn btn-dark" style = "margin: 5px">
+              <button type="button" onclick = "addMoney(25)" id="AddQuarterButton" class="btn btn-dark">
                   Add Quarter
               </button>
             </div>
-            <div class = "row justify-content-center">
-              <button type="button" onclick = "addMoney(10)" id="AddDimeButton" class="btn btn-dark" style = "margin: 5px">
+            <div class = "row">
+              <button type="button" onclick = "addMoney(10)" id="AddDimeButton" class="btn btn-dark">
                   Add Dime
               </button>
-              <button type="button" onclick = "addMoney(5)" id="AddNickelButton" class="btn btn-dark" style = "margin: 5px">
+              <button type="button" onclick = "addMoney(5)" id="AddNickelButton" class="btn btn-dark">
                   Add Nickel
               </button>
             </div>
@@ -116,18 +65,18 @@
 
           <hr>
 
-          <div style="padding: 5px 0 15px 0">
-            <div class = "row justify-content-center">
+          <div class="rightSideRow">
+            <div class = "row">
               <h2>Messages</h2>
             </div>
-            <div class = "row justify-content-center">
-              <p id = "message" >-</p>
+            <div class = "row outputText">
+              <p id = "message">-</p>
             </div>
-            <div class = "row justify-content-center">
-              <h2>Item:</h2>
-              <p id = "selectedItem" style = "padding: 1px; margin-left: 10px">&emsp;&emsp;</p>
+            <div class = "row">
+                <h2>Item:</h2>
+                <p id = "selectedItem" style = "padding: 1px; margin-left: 10px">&emsp;&emsp;</p>
             </div>
-            <div class = "row justify-content-center">
+            <div class = "row">
               <button type="button" id="purchaseButton" class="btn btn-dark">
                   Make Purchase
               </button>
@@ -136,14 +85,14 @@
 
           <hr>
 
-          <div style="padding-top: 10px">
-            <div class = "row justify-content-center">
+          <div class="rightSideRow">
+            <div class = "row">
               <h2>Change</h2>
             </div>
-            <div style="margin:auto; width:50%" class = "row justify-content-center">
+            <div class = "row outputText">
               <p id = "change">&emsp;&emsp;&emsp;&emsp;</p>
             </div>
-            <div class = "row justify-content-center">
+            <div class = "row">
               <button type="button" id="returnChangeButton" class="btn btn-dark">
                   Change Return
               </button>
