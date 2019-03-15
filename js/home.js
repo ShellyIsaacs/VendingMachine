@@ -31,8 +31,8 @@ function loadItems(){
           vendingItems.append(card);
         });
       },
-      error: function (error) {
-        $('#message').text(error);
+      error: function () {
+        $('#message').text('Error loading machine.');
       }
   });
 }
